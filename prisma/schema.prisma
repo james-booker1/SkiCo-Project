@@ -9,3 +9,75 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Coach {
+  id        Int    @id @default(autoincrement())
+  firstname String @unique
+  lastname  String @unique
+  bio       String
+  admin Admin @relation(fields: [adminId], references: [id])
+  adminId Int
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  firstname String   @unique
+  lastname  String   @unique
+  email     String   @unique
+  phone     String   @unique
+  course    CoursetoUser[]
+  reviews    Review[]
+}
+
+model Review {
+  id Int @id @default(autoincrement())
+  rating Int
+  comment String
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+  courses Course[]
+  admin Admin @relation(fields: [adminId], references: [id])
+  adminId Int
+}
+
+model Course {
+  id Int @id @default(autoincrement())
+  name String   
+  price String
+  description String
+  review Review[]
+  resort Resort @relation(fields: [resortId], references: [id])
+  resortId Int
+  coursetouser CoursetoUser[]
+  admin Admin @relation(fields: [adminId], references: [id])
+  adminId Int
+}
+
+model Resort {
+  id Int @id @default(autoincrement())
+  name String 
+  province String
+  country String
+  courses Course[]
+  admin Admin @relation(fields: [adminId], references: [id])
+  adminId Int
+}
+
+model Admin {
+  id Int @id @default(autoincrement())
+  firstname String   @unique
+  lastname String @unique
+  email String @unique
+  resorts Resort[]
+  coaches Coach[]
+  courses Course[]
+  review Review[]
+}
+
+model CoursetoUser {
+  id Int @id @default(autoincrement())
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+  course Course @relation(fields: [courseId], references: [id])
+  courseId Int
+}
