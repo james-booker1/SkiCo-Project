@@ -1,6 +1,12 @@
+import Footer from "../../components/footer";
+import Nav from "../../components/nav";
+
 export default function Resorts() {
   return (
-    <h1>Resorts go here</h1>
-
+    <div>
+      <Nav/>
+    <h1 className="text-3xl font-bold underline">Resorts go here 1</h1>
+    <Footer/>
+    </div>
   )
 }
