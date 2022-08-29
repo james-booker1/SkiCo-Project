@@ -1,6 +1,12 @@
 
 export default function Coaches() {
-  return(
-    <h1>Coaches go here</h1>
+  return (
+    <div>
+      <div>
+        <h1>Meet our amazing WhisSkiCo team</h1>
+      </div><div>
+        Coaches loop goes here
+      </div>
+    </div>
   )
 }

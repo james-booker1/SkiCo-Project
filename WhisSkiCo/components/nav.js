@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Nav() {
   return (
-    <div class="navbar bg-base-100">
+    <div class="navbar absolute hover:bg-white hover:text-black z-50">
       <div class="navbar-start">
         <div class="dropdown">
           <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -13,53 +13,57 @@ export default function Nav() {
             <li><a>Resorts</a></li>
             <li><a>About</a></li>
             <li><a>Coaches</a></li>
-            {/* <li tabindex="0">
-          <a class="justify-between">
-            Parent
-            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
-          </a>
-          <ul class="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li> */}
+            <li tabindex="0">
+              <a class="justify-between">
+                Parent
+                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+              </a>
+              <ul class="p-2">
+                <li><a>Submenu 1</a></li>
+                <li><a>Submenu 2</a></li>
+              </ul>
+            </li>
 
           </ul>
         </div>
         <Link href="/">
-        <a class="btn btn-ghost normal-case text-xl">WhisSkiCo</a>
+          <a class="btn btn-ghost normal-case text-xl">Whistler Ski Collective</a>
         </Link>
       </div>
-      <div class="navbar-center hidden lg:flex">
+      <div class="navbar-center hidden lg:flex ">
         <ul class="menu menu-horizontal p-0">
           <Link href="/courses">
-          <li><a>Courses</a></li>
+            <li><a>Courses</a></li>
           </Link>
           <Link href="/resorts">
-          <li><a>Resorts</a></li>
+            <li><a>Resorts</a></li>
           </Link>
-          <Link href="/about">
+          {/* <Link href="/about">
           <li><a>About</a></li>
-          </Link>
-          <Link href="/coaches">
+          </Link> */}
+          {/* <Link href="/coaches">
           <li><a>Coaches</a></li>
-          </Link>
-          {/* <li tabindex="0">
-        <a>
-          Parent
-          <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-        </a>
-        <ul class="p-2">
-          <li><a>Submenu 1</a></li>
-          <li><a>Submenu 2</a></li>
-        </ul>
-      </li> */}
+          </Link> */}
+          <li  tabindex="0 ">
+            <a>
+              About
+              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
+            </a>
+            <ul class="p-2 ">
+              <Link href="/about">
+                <li><a>About us</a></li>
+              </Link>
+              <Link href="/coaches">
+                <li><a>Our Team</a></li>
+              </Link>
+            </ul>
+          </li>
 
         </ul>
       </div>
-      {/* <div class="navbar-end">
+      <div class="navbar-end">
     <a class="btn">Get started</a>
-  </div> */}
+  </div>
     </div>
   )
 }
