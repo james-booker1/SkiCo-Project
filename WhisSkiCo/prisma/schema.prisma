@@ -1,9 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
-
 }
 
 datasource db {
@@ -16,8 +12,8 @@ model Coach {
   firstname String @unique
   lastname  String @unique
   bio       String
-  admin     Admin? @relation(fields: [adminId], references: [id])
   adminId   Int?
+  admin     Admin? @relation(fields: [adminId], references: [id])
 }
 
 model User {
@@ -35,11 +31,11 @@ model Review {
   id      Int      @id @default(autoincrement())
   rating  Int
   comment String
-  user    User?    @relation(fields: [userId], references: [id])
   userId  Int
-  courses Course[]
-  admin   Admin    @relation(fields: [adminId], references: [id])
   adminId Int
+  admin   Admin    @relation(fields: [adminId], references: [id])
+  user    User     @relation(fields: [userId], references: [id])
+  courses Course[]
 }
 
 model Course {
@@ -47,12 +43,12 @@ model Course {
   name         String
   price        BigInt
   description  String
-  review       Review[]
-  resort       Resort         @relation(fields: [resortId], references: [id])
-  resortId     Int
+  resortId     Int?
+  adminId      Int?
+  admin        Admin?          @relation(fields: [adminId], references: [id])
+  resort       Resort?      @relation(fields: [resortId], references: [id])
   coursetouser CoursetoUser[]
-  admin        Admin          @relation(fields: [adminId], references: [id])
-  adminId      Int
+  review       Review[]
 }
 
 model Resort {
@@ -61,9 +57,9 @@ model Resort {
   province    String
   country     String
   description String
+  adminId     Int?
+  admin       Admin?    @relation(fields: [adminId], references: [id])
   courses     Course[]
-  admin       Admin    @relation(fields: [adminId], references: [id])
-  adminId     Int
 }
 
 model Admin {
@@ -72,16 +68,16 @@ model Admin {
   lastname  String   @unique
   email     String   @unique
   password  String
-  resorts   Resort[]
   coaches   Coach[]
   courses   Course[]
+  resorts   Resort[]
   review    Review[]
 }
 
 model CoursetoUser {
   id       Int    @id @default(autoincrement())
-  user     User   @relation(fields: [userId], references: [id])
   userId   Int
-  course   Course @relation(fields: [courseId], references: [id])
   courseId Int
+  course   Course @relation(fields: [courseId], references: [id])
+  user     User   @relation(fields: [userId], references: [id])
 }

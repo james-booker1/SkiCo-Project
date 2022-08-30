@@ -27,10 +27,10 @@ export default function Nav() {
           </ul>
         </div>
         <Link href="/">
-          <a class="btn btn-ghost normal-case text-xl">Whistler Ski Collective</a>
+          <a class="btn btn-ghost normal-case text-3xl">Whistler Ski Collective</a>
         </Link>
       </div>
-      <div class="navbar-center hidden lg:flex ">
+      <div class="navbar-center hidden p-5 lg:flex text-xl ">
         <ul class="menu menu-horizontal p-0">
           <Link href="/courses">
             <li><a>Courses</a></li>

@@ -19,3 +19,5 @@ const coach = [
   },
 
 ]
+
+module.exports = { coach }

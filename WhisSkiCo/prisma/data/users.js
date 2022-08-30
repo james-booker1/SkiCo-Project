@@ -44,8 +44,8 @@ const admin = [
     firstname: 'admin',
     lastname: '1',
     email: 'admin@example.com',
-    password: 12345
+    password: '12345'
   }
 ]
 
-module.exports = { admin, users }
+module.exports = { admin, user }
