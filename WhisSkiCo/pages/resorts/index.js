@@ -1,6 +1,30 @@
-export default function Resorts() {
+export default function Resorts({ resorts }) {
   return (
-    <h1 className="text-3xl font-bold underline">Resorts go here 1</h1>
-    
+    <div class="pt-20">
+      <h1 class="text-3xl m-20">Resorts we offer course at</h1>
+      <div className="flex m-20">
+
+        {resorts.map((resort) => (
+          <div class="flex flex-col items-center whitespace-normal ">
+            <p class="text-3xl">{resort.name}</p>
+            <p>{resort.country}</p>
+            <p>{resort.province}</p>
+            <p>{resort.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   )
+}
+
+export async function getStaticProps() {
+
+  const res = await fetch('http://localhost:3000/api/resorts')
+  const resorts = await res.json()
+
+  return {
+    props: {
+      resorts,
+    },
+  }
 }

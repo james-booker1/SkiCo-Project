@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 
 async function main() {
   // ... you will write your Prisma Client queries here
-  const allcoaches = await prisma.coach.findMany()
+  const allcoaches = await prisma.course.findMany()
   console.log(allcoaches)
 }
 
