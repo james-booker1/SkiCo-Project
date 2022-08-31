@@ -1,15 +1,15 @@
 export default function Coaches({ coaches }) {
   return (
-    <div class="pt-20">
-      <div class="m-20">
-        <p class="text-3xl">Meet our amazing WhisSkiCo team</p>
+    <div className="pt-20">
+      <div className="m-20">
+        <p className="text-3xl">Meet our amazing WhisSkiCo team</p>
       </div>
-      <div class="m-20">
+      <div className="m-20">
         {coaches.map((coach) => (
-          <div class="flex justify-between items-center m-10">
-            <p class="flex justify-center w-1/3 text-3xl">{coach.firstname} {coach.lastname}</p>
-            <p class="flex justify-center w-1/3 text-xl">{coach.bio}</p>
-            <div class="flex justify-center w-1/3 text-xl">
+          <div className="flex justify-between items-center m-10">
+            <p className="flex justify-center w-1/3 text-3xl">{coach.firstname} {coach.lastname}</p>
+            <p className="flex justify-center w-1/3 text-xl">{coach.bio}</p>
+            <div className="flex justify-center w-1/3 text-xl">
               photo box
             </div>
           </div>

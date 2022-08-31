@@ -1,13 +1,10 @@
+import CourseComponent from "../components/courses"
 
 export default function Courses({ courses }) {
   return (
     <div className="pt-20">
-      <h1 className="m-20">Courses go here</h1>
-      <div>
-    {courses.map((course) => (
-      course.name
-    ))}
-      </div>
+      <p className="m-20 text-3xl">See below for upcoming courses</p>
+      <CourseComponent courses={courses} />
     </div>
   )
 }

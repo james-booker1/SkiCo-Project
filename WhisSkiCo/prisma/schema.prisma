@@ -42,7 +42,7 @@ model Review {
 model Course {
   id           Int            @id @default(autoincrement())
   name         String
-  price        BigInt
+  price        Int
   description  String
   resortId     Int?
   adminId      Int?
